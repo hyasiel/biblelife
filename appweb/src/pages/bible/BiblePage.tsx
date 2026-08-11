@@ -1,5 +1,5 @@
 import Footer from "../../shared/layout/components/Footer"
-import {useState, type EventHandler} from "react";
+import {useState} from "react";
 import BibleHeader from "../../modules/bible/components/BibleHeader";
 import BookSelectorModal from "../../modules/bible/components/BookSelectorModal";
 
@@ -7,7 +7,7 @@ export default function BiblePage () {
 
     const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
-    const [bookNameState, setBookNameState] = useState("GENESIS");
+    const [bookNameState, setBookNameState] = useState<string>("Genesis");
     const [versionBookState, setVersionBookState] = useState("RV60");
 
 
