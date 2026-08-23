@@ -1,8 +1,8 @@
 export interface IBibleBook {
-    id: string;
-    title: string;
-    chapters: number;
-    testament: "old" | "new";
+  id: string;
+  title: string;
+  chapters: number;
+  testament: "old" | "new";
 }
 
 export const bibleBooks: IBibleBook[] = [

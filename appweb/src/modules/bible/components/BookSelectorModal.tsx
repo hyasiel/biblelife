@@ -5,13 +5,14 @@ import BibleList from "./BibleList";
 
 
 interface IBookSelectorModal {
-    isOpen: boolean;
-    onClose(): void;
+    isOpenBook: boolean;
+    onCloseBook(): void;
     setBook: (book: string)=>void;
+    setVerse: (verse: number)=>void;
 }
 
 
-export default function BookSelectorModal ({isOpen, onClose, setBook}: IBookSelectorModal) {
+export default function BookSelectorModal ({isOpenBook, onCloseBook, setBook, setVerse}: IBookSelectorModal) {
 
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
@@ -24,18 +25,18 @@ useEffect(()=>{
 
     if(!dialog) return;
 
-    if (isOpen) {
+    if (isOpenBook) {
         dialog.show();
     
     } else {
         dialog.close();
     }
-},[isOpen])
+},[isOpenBook])
 
 
 const handleCancel = (e: SyntheticEvent)=>{
     e.preventDefault();
-    onClose();
+    onCloseBook();
 }
 
 
@@ -57,17 +58,17 @@ return (
             <div className=" pl-3.5 books flex flex-col gap-1">
 
                 
-                <BibleList testament={oldTestament} onClose={onClose} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook}/>
+                <BibleList testament={oldTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setVerse={setVerse}/>
 
                 <hr/>
 
-                <BibleList testament={newTestament} onClose={onClose} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook}/>
+                <BibleList testament={newTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setVerse={setVerse}/>
 
             </div>
 
             
 
-            <button onClick={onClose}>
+            <button onClick={onCloseBook}>
                 Cerrar
             </button>
         </dialog>
