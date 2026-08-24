@@ -3,20 +3,30 @@ import {useEffect, useState} from "react";
 import BibleHeader from "../../modules/bible/components/BibleHeader";
 import BookSelectorModal from "../../modules/bible/components/BookSelectorModal";
 import BibleText from "../../modules/bible/components/BibleText";
+import { fetchBibletext } from "../../modules/bible/services/fetchBibleText";
+import {bibleBooks} from "../../modules/bible/data/bibleBooks";
+
 
 export default function BiblePage () {
 
     const [isBookModalOpen, setIsBookModalOpen] = useState(false);
 
-    const [bookNameState, setBookNameState] = useState<string>("Genesis");
-    const [verseNameState, setVerseNameState] = useState<number>(1)
+    const [bookNameState, setBookNameState] = useState<string>("Filipenses");
+    const [chapterNameState, setchapterNameState] = useState<number>(1)
     const [versionBookState, setVersionBookState] = useState("RV60");
 
 
-    useEffect(()=>{
-        console.log(bookNameState + " " + verseNameState);
-    }, [verseNameState])
 
+    useEffect(()=>{
+    //al detectar cambios en el los versiculos hacemos fetch.
+
+    //obtenemos el id en base al nombre;
+    const bookObj = bibleBooks.find(book=>book.title == bookNameState)
+        if (bookObj == undefined) return;
+        fetchBibletext(chapterNameState, bookObj.id);
+    }, [chapterNameState])
+
+    
 
     return (
     <>
@@ -30,9 +40,9 @@ export default function BiblePage () {
     
 
 
-        <BookSelectorModal isOpenBook={isBookModalOpen} onCloseBook={()=> setIsBookModalOpen(false)} setBook={(book)=>setBookNameState(book)} setVerse={(verse)=> setVerseNameState(verse)}/>
+        <BookSelectorModal isOpenBook={isBookModalOpen} onCloseBook={()=> setIsBookModalOpen(false)} setBook={(book)=>setBookNameState(book)} setChapter={(chapter)=> setchapterNameState(chapter)}/>
 
-        <BibleText/>
+        
 
         <Footer/>
     </>

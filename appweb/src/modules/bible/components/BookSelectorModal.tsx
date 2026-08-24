@@ -8,11 +8,11 @@ interface IBookSelectorModal {
     isOpenBook: boolean;
     onCloseBook(): void;
     setBook: (book: string)=>void;
-    setVerse: (verse: number)=>void;
+    setChapter: (verse: number)=>void;
 }
 
 
-export default function BookSelectorModal ({isOpenBook, onCloseBook, setBook, setVerse}: IBookSelectorModal) {
+export default function BookSelectorModal ({isOpenBook, onCloseBook, setBook, setChapter}: IBookSelectorModal) {
 
 
     const dialogRef = useRef<HTMLDialogElement | null>(null);
@@ -58,11 +58,11 @@ return (
             <div className=" pl-3.5 books flex flex-col gap-1">
 
                 
-                <BibleList testament={oldTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setVerse={setVerse}/>
+                <BibleList testament={oldTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setChapter={setChapter}/>
 
                 <hr/>
 
-                <BibleList testament={newTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setVerse={setVerse}/>
+                <BibleList testament={newTestament} onClose={onCloseBook} selectedBook={selectedBook} toogleBook={toogleBook} setBook={setBook} setChapter={setChapter}/>
 
             </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function BibleText (currentverse) {
+export default function BibleText (){
     return (
         <React.Fragment>
             

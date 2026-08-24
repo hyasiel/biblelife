@@ -7,10 +7,10 @@ interface IBibleList {
     selectedBook: string | null;
     setBook: (arg: string)=>void;
     toogleBook: (arg: string)=>void;
-    setVerse: (arg: number)=>void;
+    setChapter: (arg: number)=>void;
 }
 
-export default function BibleList({testament, onClose, selectedBook, setBook, toogleBook, setVerse}: IBibleList) {
+export default function BibleList({testament, onClose, selectedBook, setBook, toogleBook, setChapter}: IBibleList) {
 
     return(
     testament.map((e: IBibleBook)=>{
@@ -27,7 +27,7 @@ export default function BibleList({testament, onClose, selectedBook, setBook, to
                         {/* lista que contiene todos los versiculos */}
                         <ul hidden={!isVisible} className="caps_list flex flex-row gap-2 flex-wrap w-full justify-baseline">
                             {/* se crea un array con el numero de capitulos de el libro actual y luego lo recorremos para obtener la cantidad de elementos asignados (esto se traduce a la cantidad de versiculos de cada libro) */}
-                        <ChapterList chapters={e.chapters} onClose={onClose} setVerse={setVerse}/>
+                        <ChapterList chapters={e.chapters} onClose={onClose} setChapter={setChapter}/>
 
                         </ul>
                     
