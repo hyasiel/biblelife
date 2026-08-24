@@ -15,13 +15,12 @@ export default function BiblePage () {
     const [selection, setSelection] = useState({book: "genesis", chapter: 1})
 
     useEffect(()=>{
-        //al detectar cambios en el los versiculos hacemos fetch.
+        //al detectar cambios en el los versiculos se llama la funcion que realiza la peticion del texto especifico.
         const loadBibleText = async () => {
         const data = await fetchBibletext(selection.chapter, selection.book, versionBookState);
-        console.log(data.data)
 
         //se crea array mas simple en base al original para pasar como parametro
-        const verseAndText = data.data.map((element)=>{return {verse: element.verse, text: element.text}});
+        const verseAndText = data.data.map((element:{verse: number; text: string})=>{return {verse: element.verse, text: element.text}});
         setCurrentText(verseAndText);
     }
 
