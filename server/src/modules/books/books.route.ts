@@ -6,7 +6,7 @@ const router: Router = Router();
 const book = new bookController();
 
 //get specific verse and chapter of book
-router.get("/getBook", book.getVerse);
+router.post("/getBook", book.getVerse);
 
 
 export default router;
