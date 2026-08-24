@@ -38,14 +38,15 @@ export default function BiblePage () {
         onCloseBook={()=> setIsBookModalOpen(false)} 
         onOpenBookModal={()=>setIsBookModalOpen(true)} 
         bookName={bookNameState} 
-        versionBook={versionBookState} 
+        versionBook={versionBookState}
+        
         />
     
 
 
         <BookSelectorModal isOpenBook={isBookModalOpen} onCloseBook={()=> setIsBookModalOpen(false)} setBook={(book)=>setBookNameState(book)} setSelection={(selectionData)=>setSelection(selectionData)}/>
 
-        <BibleText verseAndText={currentText} />
+        <BibleText verseAndText={currentText} chapterBook={selection.chapter} bookName={bookNameState}/>
         
 
         <Footer/>
