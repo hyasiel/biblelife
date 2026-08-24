@@ -4,27 +4,30 @@ import BibleHeader from "../../modules/bible/components/BibleHeader";
 import BookSelectorModal from "../../modules/bible/components/BookSelectorModal";
 import BibleText from "../../modules/bible/components/BibleText";
 import { fetchBibletext } from "../../modules/bible/services/fetchBibleText";
-import {bibleBooks} from "../../modules/bible/data/bibleBooks";
 
 
 export default function BiblePage () {
 
     const [isBookModalOpen, setIsBookModalOpen] = useState(false);
-
-    const [bookNameState, setBookNameState] = useState<string>("Filipenses");
-    const [chapterNameState, setchapterNameState] = useState<number>(1)
-    const [versionBookState, setVersionBookState] = useState("RV60");
-
-
+    const [bookNameState, setBookNameState] = useState<string>("Genesis");
+    const [versionBookState] = useState("en-rv");
+    const [currentText, setCurrentText] = useState([]);
+    const [selection, setSelection] = useState({book: "genesis", chapter: 1})
 
     useEffect(()=>{
-    //al detectar cambios en el los versiculos hacemos fetch.
+        //al detectar cambios en el los versiculos hacemos fetch.
+        const loadBibleText = async () => {
+        const data = await fetchBibletext(selection.chapter, selection.book, versionBookState);
+        console.log(data.data)
 
-    //obtenemos el id en base al nombre;
-    const bookObj = bibleBooks.find(book=>book.title == bookNameState)
-        if (bookObj == undefined) return;
-        fetchBibletext(chapterNameState, bookObj.id);
-    }, [chapterNameState])
+        //se crea array mas simple en base al original para pasar como parametro
+        const verseAndText = data.data.map((element)=>{return {verse: element.verse, text: element.text}});
+        setCurrentText(verseAndText);
+    }
+
+    loadBibleText();
+    
+    }, [selection, versionBookState])
 
     
 
@@ -40,8 +43,9 @@ export default function BiblePage () {
     
 
 
-        <BookSelectorModal isOpenBook={isBookModalOpen} onCloseBook={()=> setIsBookModalOpen(false)} setBook={(book)=>setBookNameState(book)} setChapter={(chapter)=> setchapterNameState(chapter)}/>
+        <BookSelectorModal isOpenBook={isBookModalOpen} onCloseBook={()=> setIsBookModalOpen(false)} setBook={(book)=>setBookNameState(book)} setSelection={(selectionData)=>setSelection(selectionData)}/>
 
+        <BibleText verseAndText={currentText} />
         
 
         <Footer/>

@@ -1,16 +1,20 @@
 
 
-export async function fetchBibletext(chapter: number, book: string){
-    await fetch("http://localhost:3000/getBook", {
+export async function fetchBibletext(chapter: number, book: string, version: string){
+    const response = await fetch("http://localhost:3000/getBook", {
         method: "POST",
         body: JSON.stringify({
-            bb: "en-rv",
+            bb: version,
             b: book,
             c: chapter,
-            v: "1",
         }),
         headers: {"Content-Type": "application/json"}
     })
-    .then((res)=> res.json())
-    .then((data)=>{console.log(data)});
+
+    if (!response.ok) {
+        throw new Error(`Error HTTP: ${response.status}`)
+    }
+
+    const data = await response.json();
+    return data;
 }
