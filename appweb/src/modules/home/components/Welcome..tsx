@@ -2,8 +2,8 @@ import {IconNotebook, IconHeart} from '@tabler/icons-react';
 
 export default function Welcome () {
     return (
-        <section className="welcome_section">
-                <time dateTime="2026-04-30">abr 29, 2026</time>
+        <section className="welcome_section pr-2.5 pl-2.5">
+                <time dateTime="2026-08-24">ago 24, 2026</time>
                 <h2 className="welcome_text">Bienvenido</h2>
                 <div className="actions">
                     <button aria-label="Accion 1">

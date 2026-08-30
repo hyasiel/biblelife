@@ -2,37 +2,8 @@
 
 
 
-@media (max-width:700px) {
-    
 
-footer {
-    position: fixed;
-    bottom: 0px;
-    display: flex;
-    justify-self: center;
-    justify-items: center;
-    border-radius: 25px;
-    width: 100%;
-    justify-content: center;
-    padding-bottom: 10px;
-}
 
-.nav{
-    position: relative;
-    display: flex;
-    border-radius: 50px;
-    background: #ffffffd7;
-    backdrop-filter: blur(3px);
-}
-
-.nav_list {
-    display: flex;
-    gap: 20px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0;
-}
 
 .nav_list li {
     list-style: none;
@@ -50,7 +21,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    width: 40px;
+    width: 50px;
     padding: 3px;
     transition: .1s all;
 }
@@ -61,9 +32,5 @@ footer {
 }
 
 .nav_items button span {
-    font-size: 11px;
     color: black;
-}
-
-
 }

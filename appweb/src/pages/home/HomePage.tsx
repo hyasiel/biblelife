@@ -12,12 +12,13 @@ export default function HomePage (){
     //main page
     return (
         <>
-            <Header/>
-            <main className="">
+            <main className="h-dvh">
+                <Header/>
                 <Welcome/>
                 <DailyVerse/>
+                <Footer/>
             </main>
-            <Footer/>      
+                  
         </>
     )
 }
