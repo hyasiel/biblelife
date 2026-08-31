@@ -47,12 +47,6 @@
     width: 60px!important;
 }
 
-hr {
-    display: flex;
-    justify-self: center;
-    max-width: 100%;
-    width: 93%;
-}
 
 .verse_day h3{
     text-align: left;
