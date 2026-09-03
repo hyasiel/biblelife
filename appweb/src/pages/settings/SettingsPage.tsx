@@ -10,7 +10,7 @@ export default function SettingsPage() {
     useEffect(()=>{
         //fetch data
         async function fetchDataRacha(){
-            const response = await fetch("api");
+            const response = await fetch("http://localhost:3000/u/racha");
             const data = await response.json();
             setRacha(data.racha);
         }
