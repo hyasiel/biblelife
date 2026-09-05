@@ -6,7 +6,7 @@ export default function Footer(){
     return (
 
         <footer className="fixed bottom-2 flex justify-center rounded-2xl w-full">
-        <nav className="nav relative flex rounded-[50px] bg-[#eeeeeeb7] backdrop-blur-[1px]">
+        <nav className="nav md:hidden relative flex rounded-[50px] bg-[#eeeeeeb7] backdrop-blur-[1px]">
             <ul className="nav_list flex gap-5 p-1.5 pl-2.5 pr-2.5 m-0">
                 
                 <li className="nav_items">
