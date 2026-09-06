@@ -21,11 +21,11 @@ export default function Header() {
     },[])
 
     return (
-        <header className="flex p-0 flex-col md:flex-row md:gap-3 w-full relative justify-between pr-6 pl-6">
+        <header className="flex p-0 flex-col md:flex-row md:gap-3 w-full md:justify-between md:pr-6 md:pl-6 md:p-3 md:items-center md:bg-gray-200">
                 <h1 className="app_title text-center text-[18px]">BIBLELIFE</h1>
 
-            <div className="flex gap-3 items-center">
-                <nav className="">
+            <div className="flex items-center gap-3 relative h-10">
+                <nav className="hidden mr-5 md:inline">
                     <ul className="flex gap-2">
                         <li className="nav_items">
                             <Link to="/">
@@ -52,12 +52,12 @@ export default function Header() {
                         </li>
                     </ul>
                 </nav>
-                <div className="racha flex gap-1.5 bg-gray-200 self-end md:self-center p-2 rounded-tl-lg rounded-bl-lg shadow md:bg-transparent md:shadow-none md:p-0">
+                <div className="racha flex gap-1.5 bg-gray-200 absolute md:relative right-0 md:self-center p-2 rounded-tl-lg rounded-bl-lg shadow md:bg-transparent md:shadow-none md:p-0">
                     <span className="text-[17px]">{racha}</span>
-                    <IconFlameFilled className="fill-red-500"/>
+                    <IconFlameFilled className="fill-amber-200 stroke-red-600 stroke-2"/>
                 </div>
                 <div className="imgcontainer md:justify-self-end">
-                    <img src={imgsrc} alt="" className=" w-10 h-10 rounded-full hidden md:flex md:justify-self-end"/>
+                    <img src={imgsrc} alt="" className=" w-8 h-8 rounded-full hidden md:flex md:justify-self-end"/>
                 </div>
                 
             </div>
