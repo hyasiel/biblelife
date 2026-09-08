@@ -1,3 +1,5 @@
+
+
 import img from "../../../assets/bbinit.png"
 export default function DailyVerse () {
     return(
@@ -8,7 +10,7 @@ export default function DailyVerse () {
                 <div>— <cite className="text-[14px] md:text-[16px] lg:text-[18px]">juan 3:16</cite></div>
             </blockquote>
             <hr className="hidden md:inline md:w-full lg:w-[85%]"/>
-            <div className=" verse-img_container overflow-hidden rounded-2xl h-50 sm:h-70 w-[85%] mt-4 md:h-45 lg:h-65 lg:w-[75%]">
+            <div className=" verse-img_container overflow-hidden rounded-2xl h-50 sm:h-70 w-[85%] mt-4 md:h-55 lg:h-65 lg:w-[75%]">
                 <img src={img} alt="" className="w-full h-full object-cover"/>
             </div>
         </section>
