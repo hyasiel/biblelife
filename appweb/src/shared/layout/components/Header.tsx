@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./styles/header.css"
 import { IconFlameFilled } from '@tabler/icons-react';
 import {Link} from "react-router-dom"
-const imgsrc = "https://wallpapers.com/images/featured/cool-profile-pictures-87h46gcobjl5e4xu.jpg"
+const imgsrc = "https://img.magnific.com/vector-premium/icono-plano-verde-perfil-cuenta-usuario-aplicaciones-sitios-web_1254296-1186.jpg"
 
 export default function Header() {
 

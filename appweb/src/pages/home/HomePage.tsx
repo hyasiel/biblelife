@@ -15,7 +15,7 @@ export default function HomePage (){
             <main className="h-dvh">
                 <Header/>
                 <Welcome/>
-                <div className="grid_versecontainer">
+                <div className="versecontainer md:grid md:grid-cols-2">
                     <InfoVerses/>
                     <DailyVerse/>
                 </div>

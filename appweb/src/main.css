@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+
+@theme {
+    --shadow-custom: 0px 0px 7px 0px gray;
+}

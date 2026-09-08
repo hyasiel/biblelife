@@ -3,6 +3,8 @@
 
 
 
+
+
 .welcome_section {
     display: flex;
     flex-direction: column;
@@ -38,13 +40,8 @@
 }
 
 
-.verse_day h3{
-    text-align: left;
-
-}
 
 .verse_day blockquote p {
-    text-align: left;
     font-family: "Inria Serif";
 }
 
