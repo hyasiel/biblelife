@@ -4,7 +4,7 @@ import BibleHeader from "../../modules/bible/components/BibleHeader";
 import BookSelectorModal from "../../modules/bible/components/BookSelectorModal";
 import BibleText from "../../modules/bible/components/BibleText";
 import { fetchBibletext } from "../../modules/bible/services/fetchBibleText";
-
+import Header from "../../shared/layout/components/Header"
 
 export default function BiblePage () {
 
@@ -32,6 +32,8 @@ export default function BiblePage () {
 
     return (
     <>
+
+        <Header/>
         <BibleHeader 
         isOpenBookAdvice={isBookModalOpen} 
         onCloseBook={()=> setIsBookModalOpen(false)} 

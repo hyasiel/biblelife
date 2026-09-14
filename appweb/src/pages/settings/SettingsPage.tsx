@@ -3,6 +3,9 @@ import Footer from "../../shared/layout/components/Footer"
 const imgsrc = "https://wallpapers.com/images/featured/cool-profile-pictures-87h46gcobjl5e4xu.jpg"
 const username = "Yasiel"
 import { IconFlameFilled } from '@tabler/icons-react';
+import Header from "../../shared/layout/components/Header"
+
+
 export default function SettingsPage() {
 
     const [racha, setRacha] = useState<number | null>(null)
@@ -21,6 +24,8 @@ export default function SettingsPage() {
 
 
     return (
+        <>
+        <Header/>
         <main className="flex flex-col justify-normal h-dvh">
             <section className="profile flex flex-col items-center mt-8 gap-4">
                 <div className="userphoto overflow-hidden flex-1">
@@ -46,5 +51,6 @@ export default function SettingsPage() {
             
             <Footer/>
         </main>
+        </>
     )   
 } 
