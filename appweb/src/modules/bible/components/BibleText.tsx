@@ -14,8 +14,8 @@ export default function BibleText ({verseAndText, bookName, chapterBook}: IBible
                 <span>Cap. {chapterBook}</span>
             </div>
             <div className="p-4">
-            {verseAndText.map(({verse, text})=>(
-                <span className="font-sans text-xl text-gray-800"><strong className="text-xs align-text-top font-bold text-black ">{verse}. </strong>{text}</span>
+            {verseAndText.map(({verse, text}, index)=>(
+                <span key={index} className="font-sans text-xl text-gray-800"><strong className="text-xs align-text-top font-bold text-black ">{verse}. </strong>{text}</span>
             ))}
             </div>
         </React.Fragment>

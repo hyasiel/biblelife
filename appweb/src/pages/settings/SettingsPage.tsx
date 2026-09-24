@@ -5,11 +5,15 @@ const username = "Yasiel"
 import { IconFlameFilled } from '@tabler/icons-react';
 import Header from "../../shared/layout/components/Header"
 
+import {Link} from "react-router-dom"
+
 
 export default function SettingsPage() {
 
     const [racha, setRacha] = useState<number | null>(null)
 
+    const logged = true;
+    
     useEffect(()=>{
         //fetch data
         async function fetchDataRacha(){
@@ -25,7 +29,7 @@ export default function SettingsPage() {
 
     return (
         <>
-        <Header/>
+        <Header onHideRacha={true}/>
         <main className="flex flex-col justify-normal h-dvh">
             <section className="profile flex flex-col items-center mt-8 gap-4">
                 <div className="userphoto overflow-hidden flex-1">
@@ -45,8 +49,19 @@ export default function SettingsPage() {
                     <button className="savedverdes p-2 border border-gray-400 shadow rounded">Versiculos Guardados</button>
                 </div>
             </section>
-            <div className="logout-container flex-1 flex justify-center items-center">
-                <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full">Cerrar Sesión</button>
+            <div className="auth-container flex-1 flex flex-col justify-center items-center gap-2.5">
+
+                {(logged) ? (
+                    <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full">Cerrar Sesión</button>
+                ) : (
+                    <Link to="/login" className="login p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full text-center">
+                        <button>Iniciar Sesion</button>
+                    </Link>
+                )}
+                
+                
+
+
             </div>
             
             <Footer/>

@@ -13,7 +13,7 @@ export default function HomePage (){
     return (
         <>
             <main className="h-dvh">
-                <Header/>
+                <Header onHideRacha={false}/>
                 <Welcome/>
                 <div className="versecontainer md:grid md:grid-cols-2">
                     <InfoVerses/>

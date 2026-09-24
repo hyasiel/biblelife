@@ -13,13 +13,13 @@ interface IBibleList {
 export default function BibleList({testament, onClose, selectedBook, setBook, toogleBook, setSelection}: IBibleList) {
 
     return(
-    testament.map((e: IBibleBook)=>{
+    testament.map((e: IBibleBook, index)=>{
 
                     const isVisible = selectedBook ===e.id;
 
                     return(
                     //lista padre que contiene cada libro
-                    <div className="books_selector p-2 w-full flex flex-col text-start items-start gap-1.5">
+                    <div key={index} className="books_selector p-2 w-full flex flex-col text-start items-start gap-1.5">
                         
                         
                         <button onClick={()=> {toogleBook(e.id); setBook(e.title);}} className="books_name hover:bg-gray-200 active:bg-gray-200">{e.title}</button>

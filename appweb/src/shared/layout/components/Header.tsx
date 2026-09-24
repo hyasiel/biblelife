@@ -4,7 +4,7 @@ import { IconFlameFilled } from '@tabler/icons-react';
 import {Link} from "react-router-dom"
 const imgsrc = "https://img.magnific.com/vector-premium/icono-plano-verde-perfil-cuenta-usuario-aplicaciones-sitios-web_1254296-1186.jpg"
 
-export default function Header() {
+export default function Header({onHideRacha}: {onHideRacha: boolean}) {
 
     const [racha, setRacha] = useState<number | null>(null)
     
@@ -52,7 +52,7 @@ export default function Header() {
                         </li>
                     </ul>
                 </nav>
-                <div className="racha flex gap-1.5 bg-gray-200 absolute items-center md:relative right-0 md:self-center p-2 rounded-tl-lg rounded-bl-lg shadow md:bg-transparent md:shadow-none md:p-0 md:align-m">
+                <div className={`racha ${onHideRacha ? 'hidden' : 'flex'} gap-1.5 bg-gray-200 absolute items-center md:relative right-0 md:self-center p-2 rounded-tl-lg rounded-bl-lg shadow md:bg-transparent md:shadow-none md:p-0 md:align-m `}>
                     <span className=" md:text-sm">{racha}</span>
                     <IconFlameFilled className="fill-amber-200 stroke-red-600 stroke-2 md:w-5"/>
                 </div>

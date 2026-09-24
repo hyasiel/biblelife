@@ -33,7 +33,7 @@ export default function BiblePage () {
     return (
     <>
 
-        <Header/>
+        <Header onHideRacha={false}/>
         <BibleHeader 
         isOpenBookAdvice={isBookModalOpen} 
         onCloseBook={()=> setIsBookModalOpen(false)} 

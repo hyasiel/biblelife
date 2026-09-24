@@ -10,7 +10,7 @@ export default function ChapterList ({chapters, onClose, bookName, setSelection}
         <>
         {[...Array(chapters)].map((_,index)=>{
             return(
-                <li className="text-center p-1 w-8 bg-gray-200 rounded-md" onClick={()=>{ 
+                <li key={index} className="text-center p-1 w-8 bg-gray-200 rounded-md" onClick={()=>{ 
                     onClose();
                     setSelection({book:bookName, chapter: index+1})
                 }}>
