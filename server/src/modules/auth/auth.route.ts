@@ -6,7 +6,6 @@ const router: Router = Router();
 const auth = new AuthController();
 
 //Authenticated route
-router.post("/auth_user", auth.auth);
-
+router.post("/login_user", auth.login);
 
 export default router;
