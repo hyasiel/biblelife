@@ -1,16 +1,12 @@
-import {Router, type Request, type Response} from "express";
-import { emitWarning } from "node:process";
+import {Router} from "express";
+import AuthController from "./auth.controller.ts";
+
 
 const router: Router = Router();
+const auth = new AuthController();
 
-
-router.get("/auth_user", (req: Request, res: Response)=>{
-    
-    const value = req.query.id;
-
-
-    res.send("the id is: " + value);
-});
+//Authenticated route
+router.post("/auth_user", auth.auth);
 
 
 export default router;
