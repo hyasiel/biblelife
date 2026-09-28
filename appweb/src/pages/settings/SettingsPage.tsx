@@ -12,7 +12,7 @@ export default function SettingsPage() {
 
     const [racha, setRacha] = useState<number | null>(null)
 
-    const logged = true;
+    const [isLogged, setIsLogged] = useState(false);
     
     useEffect(()=>{
         //fetch data
@@ -23,6 +23,11 @@ export default function SettingsPage() {
         }
 
         fetchDataRacha();
+
+        // verify is user is logged
+        //async function setLogged() {
+        //    the cookies
+        //}
 
     },[])
 
@@ -51,7 +56,7 @@ export default function SettingsPage() {
             </section>
             <div className="auth-container flex-1 flex flex-col justify-center items-center gap-2.5">
 
-                {(logged) ? (
+                {(isLogged) ? (
                     <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full">Cerrar Sesión</button>
                 ) : (
                     <Link to="/login" className="login p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full text-center">
@@ -59,7 +64,7 @@ export default function SettingsPage() {
                     </Link>
                 )}
                 
-                
+
 
 
             </div>
