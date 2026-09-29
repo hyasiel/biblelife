@@ -1,0 +1,37 @@
+.pre_login_info {
+    overflow-y: auto;
+    animation: preInfoIn .7s ease both;
+}
+
+@keyframes preInfoIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project_features > li {
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+.project_features > li:hover {
+    transform: translateX(4px);
+}
+
+.project_features > li:hover .feature_icon {
+    background-color: rgb(219, 234, 254);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .pre_login_info,
+    .project_features > li
+    {
+        animation: none;
+        transition: none;
+    }
+}

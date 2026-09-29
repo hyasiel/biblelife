@@ -1,39 +1,37 @@
-import {Link} from "react-router-dom"
-import bg from "./../../modules/login/assets/loginbg.svg"
+import AuthLayout from "../../modules/auth/components/AuthLayout"
+import AuthCard from "../../modules/auth/components/AuthCard"
+import FormField from "../../modules/auth/components/FormField"
+
+import { IconUserCircle, IconMail, IconLockPassword } from '@tabler/icons-react';
+
+
 export default function LoginPage() {
     return (
-        <>
-        <main className="h-screen w-screen flex items-center justify-center bg-white">
-            <div className="login w-5/6 h-4/5 rounded-3xl shadow-2xl shadow-blue-200 bg-gray-100">
-                <form className="flex flex-col text-center h-full justify-around">
+        <AuthLayout
+            badge="Proyecto personal de código abierto"
+            title={<>La Palabra de Dios,
+                    <br />
+                    siempre a mano</>}
+            description={<><strong className="font-semibold text-gray-900">Biblelife</strong> nació de una idea sencilla:
+                leer la Biblia con calma, sin anuncios y sin ruido. Elige tu versión, recorre libro a libro
+                y guarda los pasajes que importan, para que tu lectura continue exactamente donde la dejaste.</>}
+        >
 
-                    <div className="infoLogin flex flex-col gap-1.5">
-                        <span className="text-2xl">Accede a tu cuenta</span>
-                        
-                        <span className="text-sm">y continúa tu progreso</span>
-                        
-                    
-                    </div>
-                    
-                    <div className="inputs_container flex flex-col gap-4 items-center">
+            <AuthCard
+                title="Accede a tu cuenta"
+                subtitle="y continúa tu progreso"
+                icon={IconUserCircle}
+                submitLabel="Iniciar Sesion"
+                linkTo="/signup"
+                linkLabel="¿No tienes una cuenta?"
+            >
 
-                        <span className="font-semibold self-baseline ml-6">Correo Electronico</span>
+                <FormField label="Correo Electronico" icon={IconMail} type="email" name="email" autoComplete="email" placeholder="example@domain.exp"/>
 
-                        <input type="email" name="email" autoComplete="email" placeholder="example@domain.exp" className="border-b border-gray-300 w-4/5 h-10 focus:outline-none focus:placeholder-transparent focus:border-b-gray-400"/>
+                <FormField label="Contraseña" icon={IconLockPassword} type="password" name="password" placeholder="type your password"/>
 
-                        <span className="font-semibold self-baseline ml-6">Contraseña</span> 
-                    
-                        <input type="password" name="password" placeholder="type your password" className="border-b border-gray-300 w-4/5 h-10 focus:outline-none focus:placeholder-transparent focus:border-b-gray-400"/>
-                        
-                        <input type="submit" value="Iniciar Sesion" className="bg-blue-200 w-6/7 h-10 rounded-2xl hover:cursor-pointer"/>
-                        
-                        <Link to="" className="text-blue-800 font-light">¿No tienes una cuenta?</Link>
+            </AuthCard>
 
-                    </div>
-                    
-                </form>
-            </div>
-        </main>
-        </>
+        </AuthLayout>
     )
 }
