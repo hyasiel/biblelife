@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom"
+
 import Footer from "../../shared/layout/components/Footer"
-const imgsrc = "https://wallpapers.com/images/featured/cool-profile-pictures-87h46gcobjl5e4xu.jpg"
-const username = "Yasiel"
-import { IconFlameFilled } from '@tabler/icons-react';
 import Header from "../../shared/layout/components/Header"
 
-import {Link} from "react-router-dom"
+import { IconFlameFilled, IconNotebook, IconHeart } from '@tabler/icons-react';
+
+
 
 
 export default function SettingsPage() {
+
+
+    const imgsrc = "https://wallpapers.com/images/featured/cool-profile-pictures-87h46gcobjl5e4xu.jpg"
+    const username = "Yasiel"
+    const contact = "example@gmail.com"
 
     const [racha, setRacha] = useState<number | null>(null)
 
@@ -36,25 +42,55 @@ export default function SettingsPage() {
         <>
         <Header onHideRacha={true}/>
         <main className="flex flex-col justify-normal h-dvh">
-            <section className="profile flex flex-col items-center mt-8 gap-4">
+
+            <section className="profile flex flex-col items-center gap-2 mb-5">
+
+                <span className="profile_title self-baseline mb-5 ml-5 pl-4 pr-4 p-0.5 bg-blue-300 rounded-full">
+                    Mi Cuenta
+                </span>
+
                 <div className="userphoto overflow-hidden flex-1">
-                    <img className="w-20 rounded-full select-none" src={imgsrc}/>
+                    <img className="w-17 rounded-full select-none" src={imgsrc}/>
                 </div>
+
                 <p className="username select-none font-medium text-xl">{username}</p>
-                <hr className="border w-1/2"/>
+
+                <p className="contact text-gray-500">
+                    {contact}
+                </p>
+
+                <br />
+
+
             </section>
-            <section className="accountsummary flex flex-col flex-1 items-center justify-center gap-6">
-                <p className="font-light">RACHA</p>
-                <div className="inforacha flex gap-1">
-                    <span className="rachacounter">{racha}</span>
-                    <IconFlameFilled className="fill-amber-300 stroke-red-500"/>
+
+            <section className="accountsummary flex flex-col flex-1 items-center justify-around gap-6 bg-gray-200 rounded-tl-3xl rounded-tr-3xl">
+
+                <div className="inforacha flex gap-3 flex-col items-center">
+
+                    <p className="font-light bg-amber-500 rounded-full  pr-2 pl-2">RACHA</p>
+
+                    <div className="racha_container flex">
+                        <span className="rachacounter">{racha}</span>
+                        <IconFlameFilled className="fill-amber-300 stroke-red-500"/>
+                    </div>
+                    
                 </div>
+
                 <div className="infoverses flex flex-col gap-6">
-                    <button className="favoriteverses p-2 border shadow rounded border-gray-400">Versiculos Favoritos</button>
-                    <button className="savedverdes p-2 border border-gray-400 shadow rounded">Versiculos Guardados</button>
+                    <button className="favoriteverses p-2 shadow rounded-xl bg-gray-50 flex gap-1.5">
+                        <IconHeart stroke={2}/>
+                        <span>Versiculos Favoritos</span>
+                    </button>
+
+                    <button className="savedverdes p-2 bg-gray-50 shadow rounded-xl flex gap-1.5">
+                        <IconNotebook stroke={2}/>
+                        <span>Versiculos Guardados</span>
+                    </button>
                 </div>
             </section>
-            <div className="auth-container flex-1 flex flex-col justify-center items-center gap-2.5">
+
+            <div className="auth-container flex-1 flex flex-col justify-center items-center gap-2.5 bg-gray-200">
 
                 {(isLogged) ? (
                     <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full">Cerrar Sesión</button>

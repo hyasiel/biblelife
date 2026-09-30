@@ -28,7 +28,7 @@ export default function LoginPage() {
 
                 <FormField label="Correo Electronico" icon={IconMail} type="email" name="email" autoComplete="email" placeholder="example@domain.exp"/>
 
-                <FormField label="Contraseña" icon={IconLockPassword} type="password" name="password" placeholder="type your password"/>
+                <FormField label="Contraseña" icon={IconLockPassword} type="password" name="password" placeholder="type your password " autoComplete="new-password"/>
 
             </AuthCard>
 
