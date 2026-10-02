@@ -45,7 +45,7 @@ export default function SettingsPage() {
 
             <section className="profile flex flex-col items-center gap-2 mb-5">
 
-                <span className="profile_title self-baseline mb-5 ml-5 pl-4 pr-4 p-0.5 bg-blue-300 rounded-full">
+                <span className="profile_title self-baseline mt-2 mb-5 ml-5 pl-4 pr-4 p-0.5 bg-blue-300 rounded-full text-sm">
                     Mi Cuenta
                 </span>
 
@@ -68,7 +68,7 @@ export default function SettingsPage() {
 
                 <div className="inforacha flex gap-3 flex-col items-center">
 
-                    <p className="font-light bg-amber-500 rounded-full  pr-2 pl-2">RACHA</p>
+                    <p className="font-light bg-amber-500 rounded-full  pr-3 pl-3 p-0.5 text-sm">RACHA</p>
 
                     <div className="racha_container flex">
                         <span className="rachacounter">{racha}</span>
@@ -93,9 +93,9 @@ export default function SettingsPage() {
             <div className="auth-container flex-1 flex flex-col justify-center items-center gap-2.5 bg-gray-200">
 
                 {(isLogged) ? (
-                    <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full">Cerrar Sesión</button>
+                    <button className="logout p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full max-w-70">Cerrar Sesión</button>
                 ) : (
-                    <Link to="/login" className="login p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full text-center">
+                    <Link to="/login" className="login p-2.5 border shadow-2xl border-gray-600 w-[65%] rounded-full text-center max-w-70">
                         <button>Iniciar Sesion</button>
                     </Link>
                 )}
