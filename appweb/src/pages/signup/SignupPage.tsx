@@ -26,7 +26,7 @@ export default function SignupPage() {
                 linkLabel="¿Ya tienes una cuenta?"
             >
 
-                <FormField label="Nombre" icon={IconUser} type="text" name="nombre" autoComplete="name" required placeholder="tu nombre"/>
+                <FormField label="Nombre" icon={IconUser} type="text" name="name" autoComplete="name" required placeholder="tu nombre"/>
 
                 <FormField label="Correo Electronico" icon={IconMail} type="email" name="email" autoComplete="email" required placeholder="example@domain.exp"/>
 

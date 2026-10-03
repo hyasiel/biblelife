@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import type { ReactNode, SubmitEventHandler } from "react";
 import type { Icon } from "@tabler/icons-react";
@@ -20,10 +20,32 @@ interface IAuthCard {
 export default function AuthCard ({title, subtitle, icon: IconComponent, submitLabel, linkTo, linkLabel, children}: IAuthCard) {
 
     const {Signup, Login} = useAuth();
+    const navigate = useNavigate()
 
-    const handleEvent: SubmitEventHandler<HTMLFormElement> = (event) => {
+
+    const handleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
+
+        
+
         event.preventDefault();
-        Signup()
+        const formData = event.currentTarget;
+
+        const data = new FormData(formData);
+
+        const credentials = {
+            name: data.get("name") as string,
+            email: data.get("email") as string,
+            password: data.get("password") as string,
+            passwordConfirm: data.get("passwordConfirm") as string
+        }
+
+        formData.reset()
+
+        const response = await Signup(credentials);
+
+        if(!response) alert("Ha oocurrido un error al crear el usuario");
+            
+        navigate("/")
     };
 
     return (
