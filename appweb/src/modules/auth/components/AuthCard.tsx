@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import type { ReactNode, SubmitEventHandler } from "react";
 import type { Icon } from "@tabler/icons-react";
@@ -20,12 +20,10 @@ interface IAuthCard {
 export default function AuthCard ({title, subtitle, icon: IconComponent, submitLabel, linkTo, linkLabel, children}: IAuthCard) {
 
     const {Signup, Login} = useAuth();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
 
-
-    const handleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
-
-        
+    const signUpHandleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
 
         event.preventDefault();
         const formData = event.currentTarget;
@@ -48,10 +46,32 @@ export default function AuthCard ({title, subtitle, icon: IconComponent, submitL
         navigate("/")
     };
 
+    const loginHandleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
+
+        event.preventDefault();
+        const formData = event.currentTarget;
+
+        const data = new FormData(formData);
+
+        const credentials = {
+            email: data.get("email") as string,
+            password: data.get("password") as string,
+        }
+
+        formData.reset()
+
+        const response = await Login(credentials);
+
+        if(!response) alert("Ha oocurrido un error al crear el usuario");
+            
+        navigate("/")
+    };
+
+
     return (
         <div className="login min-w-2xs max-w-sm md:max-w-full w-5/6 h-4/5 md:h-full rounded-3xl md:rounded-none shadow-2xl shadow-blue-200 bg-gray-100 border md:border-0 md:shadow-none border-gray-400 relative md:flex-1">
 
-            <form className="flex flex-col text-center h-full justify-around overflow-y-auto py-4 lg:pr-8 lg:pl-8" onSubmit={handleEvent}>
+            <form className="flex flex-col text-center h-full justify-around overflow-y-auto py-4 lg:pr-8 lg:pl-8" onSubmit={(location.pathname=="/login") ? loginHandleEvent : signUpHandleEvent}>
 
                 <div className="infoLogin flex flex-col gap-1.5 items-center">
 

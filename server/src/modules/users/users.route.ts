@@ -6,9 +6,9 @@ const user = new userController();
 
 
 
-router.get("/u/create", user.createUser)
+router.post("/u/create", user.createUser)
 
-router.get("/u/rm", user.deleteUser)
+router.delete("/u/rm", user.deleteUser)
 
 router.get("/u/racha", user.getRacha)
 
