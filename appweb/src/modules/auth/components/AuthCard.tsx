@@ -23,7 +23,7 @@ export default function AuthCard ({title, subtitle, icon: IconComponent, submitL
     const navigate = useNavigate();
     const location = useLocation();
 
-    const signUpHandleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
+    const signUpHandleEvent: SubmitEventHandler<HTMLFormElement> = (event) => {
 
         event.preventDefault();
         const formData = event.currentTarget;
@@ -39,11 +39,10 @@ export default function AuthCard ({title, subtitle, icon: IconComponent, submitL
 
         formData.reset()
 
-        const response = await Signup(credentials);
+        const response = Signup(credentials);
 
-        if(!response) alert("Ha oocurrido un error al crear el usuario");
+        //if(response) alert("usuario creado");
             
-        navigate("/")
     };
 
     const loginHandleEvent: SubmitEventHandler<HTMLFormElement> = async (event) => {
@@ -60,11 +59,10 @@ export default function AuthCard ({title, subtitle, icon: IconComponent, submitL
 
         formData.reset()
 
-        const response = await Login(credentials);
+        const response = Login(credentials);
 
-        if(!response) alert("Ha oocurrido un error al crear el usuario");
+        //if(response) alert("sesion iniciada");
             
-        navigate("/")
     };
 
 
