@@ -1,20 +1,22 @@
-interface ICreateUser {
-    name?: string;
-    email: string;
-    password: string;
-    passwordConfirm?: string;
-}
+import type {IUserData, IUserService} from "./users.types.ts"
+import bcrypt from "bcrypt"
+import { UserRepository } from "./users.repository.ts";
 
-interface IUserService {
-    createUser(data: ICreateUser): Promise<void>
-}
-
+const repository = new UserRepository();
 
 export default class UserServices implements IUserService {
-    async createUser (data: ICreateUser) {
-        const {name, email, password, passwordConfirm} = data;
 
-        
+    async createUser (data: IUserData) {
+        const {name, email, password} = data;
+
+        const userExist = await repository.findByEmail(email);
+        if(userExist) throw new Error("usuario ya existe");
+
+        const hashedPassword = await bcrypt.hash(password, 12)
+
+        repository.create(name, email, hashedPassword)
+
+        return true;
 
     }
 }
