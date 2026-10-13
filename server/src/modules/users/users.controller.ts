@@ -10,7 +10,13 @@ export default class userController {
         
         console.log(req.body);
 
-        user.createUser(req.body)
+        try {
+            await user.createUser(req.body)
+        } catch (err) {
+            console.log(`error: ${err}`)
+            res.sendStatus(422).send(err);
+        }
+        
     };
 
 

@@ -10,11 +10,12 @@ export default class UserServices implements IUserService {
         const {name, email, password} = data;
 
         const userExist = await repository.findByEmail(email);
-        if(userExist) throw new Error("usuario ya existe");
+        
+        if(userExist) throw new Error("User Exists");
 
         const hashedPassword = await bcrypt.hash(password, 12)
 
-        repository.create(name, email, hashedPassword)
+        await repository.create(name!, email, hashedPassword)
 
         return true;
 

@@ -11,4 +11,4 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME!
 });
 
-export const db = drizzle(pool)
+export const db = drizzle({client: pool})
